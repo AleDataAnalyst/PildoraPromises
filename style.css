@@ -133,13 +133,13 @@ body {
 main {
     color: black;
     background-color: #FFF;
-    margin: 30px;
-    padding: 30px;
+    margin: 12px;
+    padding: 12px;
 }
 
 section {
-    margin: 16px;
-    padding: 16px;
+    margin: 10px;
+    padding: 6px;
 }
 
 h1 {
@@ -212,12 +212,14 @@ li {
     border-radius: .3rem;
     margin: 20px;
     padding: 20px;
+    overflow: auto;
 }
 
 code {
     color: aliceblue;
     font-family: 'M PLUS 1 Code', monospace;
     font-size: 1.2em;
+    overflow: scroll;
 }
 
 hr {
@@ -324,8 +326,13 @@ th {
     main {
         color: black;
         background-color: #FFF;
-        margin: 5%;
+        margin: 4%;
         padding: 5%;
+    }
+
+    section {
+        margin: 6px;
+        padding: 6px;
     }
 
     .codigo {
@@ -333,6 +340,7 @@ th {
         border-radius: .3rem;
         margin: 10px;
         padding: 14px;
+        overflow: auto;
         width: 95vw;
     }
     
@@ -367,8 +375,8 @@ th {
     main {
         color: black;
         background-color: #FFF;
-        margin: 1%;
-        padding: 1%;
+        margin: 3%;
+        padding: 3%;
     }
 
     section {
@@ -381,7 +389,7 @@ th {
         border-radius: .3rem;
         margin: 6px;
         padding: 8px;
-        width: 92vw;
+        width: 86vw;
     }
 }
 

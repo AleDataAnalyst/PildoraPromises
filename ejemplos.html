@@ -63,36 +63,107 @@
         <section>
             <article>
                 <h4>Ejemplo de Promesa 1: Simulación de operación asincrónica: solicitud de red</h4>
-                <code id="promesaredtrue">
-            <div class="codigo">
-                const promesared = new Promise((resolve, reject) => {<br>
-                    setTimeout(() => {<br>
-                        const exito = false; // Cambiar a false para simular un rechazo<br>
-                        if (exito) {<br>
-                            resolve("¡Éxito! Datos recibidos");<br>
-                        } else {<br>
-                            reject("Error: No se pudieron recibir los datos");<br>
-                        }<br>
-                    }, 2000);<br>
-                });<br>
-                <br>
-                promesared<br>
-                    .then((resultado) => {<br>
-                        console.log(resultado);<br>
-                        console.log = function (message) {<br>
-                            document.getElementById("promesaredtrue").innerHTML += message<br>
-                        }<br>
-                    })<br>
-                    .catch((error) => {<br>
-                        console.error(error);<br>
-                        console.log = function (message) {<br>
-                            document.getElementById("promesaredfalse").innerHTML += message<br>
-                        }
-                    });
-            </code>
+
+                <div class="codigo">
+                    <code id="promesaredtrue">
+                        const promesared = new Promise((resolve, reject) => {<br>
+                            setTimeout(() => {<br>
+                                const exito = false; // Cambiar a true para simular respuesta y false para simular un rechazo<br>
+                                if (exito) {<br>
+                                    resolve("¡Éxito! Datos recibidos");<br>
+                                } else {<br>
+                                    reject("Error: No se pudieron recibir los datos");<br>
+                                }<br>
+                            }, 2000);<br>
+                        });<br>
+                        <br>
+                        promesared<br>
+                            .then((resultado) => {<br>
+                                console.log(resultado);<br>
+                                console.log = function (message) {<br>
+                                    document.getElementById("promesaredtrue").innerHTML += message<br>
+                                }<br>
+                            })<br>
+                            .catch((error) => {<br>
+                                console.error(error);<br>
+                                console.log = function (message) {<br>
+                                    document.getElementById("promesaredfalse").innerHTML += message<br>
+                                }<br>
+                        });
+                    </code>
                 </div>
             </article>
         </section>
+
+        <section>
+            <article>
+                <h4>Ejemplo de Promesa 2: Búsqueda de datos</h4>
+                <code id="promesaredtrue">
+                <div class="codigo">
+                    function obtenerDatos() {<br>
+                        return new Promise((resolve, reject) => {<br>
+                          // Simulación de solicitud de datos asincrónica<br>
+                          setTimeout(() => {<br>
+                            const exito = true; // Cambiar a false para simular un error<br>
+                            if (exito) {<br>
+                              resolve("Datos obtenidos correctamente");<br>
+                            } else {<br>
+                              reject("Error: No se pueden obtener los datos");<br>
+                            }<br>
+                          }, 2000);<br>
+                        });<br>
+                      }<br>
+                      <br>
+                      obtenerDatos()<br>
+                        .then((datos) => {<br>
+                          console.log(datos);<br>
+                        })<br>
+                        .catch((error) => {<br>
+                          console.error(error);<br>
+                        });
+                </code>
+                </div>
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <h4>Ejemplo de Promesa 3: Carga de imágenes</h4>
+                <code id="promesaredtrue">
+                <div class="codigo">
+                    function cargarImagen(src) {<br>
+                        return new Promise((resolve, reject) => {<br>
+                          const imagen = new Image();<br>
+                          imagen.src = src;<br>
+                      
+                          imagen.onload = () => {<br>
+                            resolve(imagen);<br>
+                          };<br>
+                      
+                          imagen.onerror = () => {<br>
+                            reject("Error al cargar la imagen: " + src);<br>
+                          };<br>
+                        });<br>
+                      }<br>
+                      <br>
+                      cargarImagen("imagen1.jpg")<br>
+                        .then((imagen) => { <br>
+                            document.body.appendChild(imagen);<br>
+                            return cargarImagen("imagen2.jpg");<br>
+                        })<br>
+                        <br>
+                        .then((imagen) => { <br>
+                            document.body.appendChild(imagen);<br>
+                        }) <br>
+                        .catch((error) => {<br>
+                            console.error(error);<br>
+                        });
+
+                </code>
+                </div>
+            </article>
+        </section>
+
     </main>
     <!-- Footer -->
     <footer>
