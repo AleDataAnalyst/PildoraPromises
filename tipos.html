@@ -58,13 +58,13 @@
     </header>
 
     <main>
-        <h1>Promesas</h1>
+        <h1>Tipos de Promesas</h1>
         <section id="all">
             <h2>Promise.all</h2>
             <article>
                 <p>Devuelve una única Promesa que se resuelve cuando:</p>
-                    <li>todas las Promesas en el iterable pasado como argumento se han resuelto,</li>
-                    <li>o una se ha rechazado.</li>
+                <li>todas las Promesas en el iterable pasado como argumento se han resuelto,</li>
+                <li>o una se ha rechazado.</li>
             </article>
         </section>
 
@@ -72,28 +72,73 @@
             <h2>Promise.race</h2>
             <article>
                 <p>Devuelve una única Promesa que se resuelve o se rechaza tan pronto como:</p>
-                    <li>una de las Promesas del iterable se resuelve o se rechaza, con el valor o la razón de esa Promesa.</li>
+                <li>una de las Promesas del iterable se resuelve o se rechaza, con el valor o la razón de esa Promesa.
+                </li>
             </article>
         </section>
 
-        <section id="metodos">
-            <h2>Métodos de una promesa</h2>
+        <section id="allsettled">
+            <h2>Promise.allSettled</h2>
             <article>
-                <h3>.then(onFulfilled, onRejected):</h3>
-                <p>Se utiliza para adjuntar funciones de <em>callback</em> que se ejecutan <strong>cuando la Promesa se
-                        resuelve con éxito (en el estado "Fulfilled")</strong> o <strong>cuando se rechaza (en el estado
-                        "Rejected")</strong>.
-                    La función <strong>onFulfilled</strong> se ejecutará con el <strong>valor resuelto</strong> y la
-                    función </¡strong>onRejected</strong> se ejecutará con la <strong>razón del rechazo</strong>.</p>
-            </article>
-            <article>
-                <h3>.catch(onRejected):</h3>
-                <p>Un atajo para manejar solo el caso de rechazo, es equivalente a llamar a .then(null, onRejected).</p>
+                <p>Devuelve una Promesa que se resuelve después de que:</p>
+                <li>Todas las Promesas del iterable se hayan resuelto o rechazado, devolviendo un array de objetos con
+                    información sobre el resultado de cada Promesa.</li>
             </article>
         </section>
 
+        <section id="any">
+            <h2>Promise.any</h2>
+            <article>
+                <p>Devuelve una única Promesa que se resuelve tan pronto como:</p>
+                <li>Al menos una de las Promesas del iterable se resuelve.</li>
+                <li>Si todas las Promesas son rechazadas, se rechaza con un array de razones.</li>
+            </article>
+        </section>
+
+        <hr>
+        <h3>Tabla Comparativa de Tipos de Promesas</h3>
+        <div class="grid-container">
+            <div class="grid-item gridtitle"><strong>Método y Definición</strong></div>
+            <div class="grid-item gridtitle"><strong>Condición</strong></div>
+            <div class="grid-item gridtitle"><strong>Valor resultante</strong></div>
+
+            <!-- Promise.all -->
+            <div class="grid-item"><strong>Promise.all:</strong> Retorna una Promesa que se resuelve cuando todas
+                las Promesas en el iterable se han resuelto o una se ha rechazado.</div>
+            <div class="grid-item">Se resuelve solo si todas las Promesas en el iterable se resuelven.</div>
+            <div class="grid-item">Todas las Promesas se resuelven o una se rechaza.</div>
+
+            <!-- Promise.race -->
+            <div class="grid-item"><strong>Promise.race:</strong> Retorna una Promesa que se resuelve o se rechaza tan
+                pronto como una de las
+                Promesas del iterable se resuelve o se rechaza, con el valor o la razón de esa Promesa.</div>
+            <div class="grid-item">Se resuelve o se rechaza tan pronto como una de las Promesas del iterable se
+                resuelve o se rechaza.</div>
+            <div class="grid-item">La primera Promesa que se resuelve o se rechaza.</div>
+
+            <!-- Promise.allSettled -->
+            <div class="grid-item"><strong>Promise.allSettled:</strong> Retorna una Promesa que se resuelve después de
+                que todas las Promesas en el
+                iterable se hayan resuelto o rechazado, devolviendo un array de objetos con información sobre el
+                resultado de cada Promesa.</div>
+            <div class="grid-item">Se resuelve después de que todas las Promesas en el iterable se hayan resuelto o
+                rechazado.</div>
+            <div class="grid-item">Información sobre el resultado de cada Promesa.</div>
+
+            <!-- Promise.any -->
+            <div class="grid-item"><strong>Promise.any:</strong> Retorna una Promesa que se resuelve tan pronto como al
+                menos una de las Promesas
+                del iterable se resuelve. Si todas las Promesas son rechazadas, se rechaza con un array de razones.
+            </div>
+            <div class="grid-item">Se resuelve tan pronto como al menos una de las Promesas se resuelve.</div>
+            <div class="grid-item">El valor de la primera Promesa que se resuelve.</div>
+        </div>
     </main>
-
+    <!-- Footer -->
+    <footer>
+        <p>Píldora sobre JavaScript Promises, presentada por Alejandra Eng</p>
+        <p>Curso de Desarrollo Fullstack con Tecnologías Inmersivas de Factoría F5 y Fundación Tomillo.</p>
+    </footer>
     <!-- JavaScript -->
     <!-- Menú Toggle -->
     <script>
