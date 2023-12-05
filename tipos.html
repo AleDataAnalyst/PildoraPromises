@@ -61,6 +61,27 @@
                 <li>todas las Promesas en el iterable pasado como argumento se han resuelto,</li>
                 <li>o una se ha rechazado.</li>
             </article>
+
+            <div class="codigo">
+                <code id="ejall">
+                    const promesa1 = obtenerDatos();<br>
+                    const promesa2 = cargarImagen("imagen1.jpg");<br>
+                    const promesa3 = cargarImagen("imagen2.jpg");<br>
+                    <br>
+                    Promise.all([promesa1, promesa2, promesa3])<br>
+                    .then((resultados) => {<br>
+                       const datos = resultados[0];<br>
+                       const imagen1 = resultados[1];<br>
+                       const imagen2 = resultados[2];<br>
+                       console.log(datos);<br>
+                       document.body.appendChild(imagen1);<br>
+                       document.body.appendChild(imagen2);<br>
+                    })<br>
+                    .catch((error) => {<br>
+                       console.error(error);<br>
+                    });
+                </code>
+            </div>
         </section>
 
         <section id="race">
@@ -70,6 +91,16 @@
                 <li>una de las Promesas del iterable se resuelve o se rechaza, con el valor o la razón de esa Promesa.
                 </li>
             </article>
+            <div class="codigo">
+                <code id="ejrace">
+                    const promesa1 = new Promise(resolve => setTimeout(() => resolve('Ganó la primera'), 1000));<br>
+                    const promesa2 = new Promise(resolve => setTimeout(() => resolve('Ganó la segunda'), 500));<br>
+                    <br>
+                    Promise.race([promesa1, promesa2])<br>
+                       .then(ganador => console.log(ganador))<br>
+                       .catch(error => console.error(error));
+                </code>
+            </div>
         </section>
 
         <section id="allsettled">
@@ -79,6 +110,15 @@
                 <li>Todas las Promesas del iterable se hayan resuelto o rechazado, devolviendo un array de objetos con
                     información sobre el resultado de cada Promesa.</li>
             </article>
+            <div class="codigo">
+                <code id="ejallsettled">
+                    const promises = [Promise.resolve(1), Promise.reject('Error'), Promise.resolve(3)];<br>
+                    <br>
+                    Promise.allSettled(promises)<br>
+                       .then(resultados => console.log(resultados))<br>
+                       .catch(error => console.error(error));
+                </code>
+            </div>
         </section>
 
         <section id="any">
@@ -88,6 +128,15 @@
                 <li>Al menos una de las Promesas del iterable se resuelve.</li>
                 <li>Si todas las Promesas son rechazadas, se rechaza con un array de razones.</li>
             </article>
+            <div class="codigo">
+                <code id="ejany">
+                    const promises = [Promise.resolve(1), Promise.reject('Error'), Promise.resolve(3)];<br>
+                    <br>
+                    Promise.allSettled(promises)<br>
+                    .then(resultados => console.log(resultados))<br>
+                    .catch(error => console.error(error));<br>
+                </code>
+            </div>
         </section>
 
         <hr>

@@ -24,7 +24,7 @@
             </div>
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html#definicion">
+                    <a class="nav-link" href="index.html#definicion">
                         Definicion
                     </a>
                 </li>
@@ -68,7 +68,8 @@
                     <code id="promesaredtrue">
                         const promesared = new Promise((resolve, reject) => {<br>
                             setTimeout(() => {<br>
-                                const exito = false; // Cambiar a true para simular respuesta y false para simular un rechazo<br>
+                                const exito = false;<br>
+                                // Cambiar a true para simular respuesta y false para simular un rechazo<br>
                                 if (exito) {<br>
                                     resolve("¡Éxito! Datos recibidos");<br>
                                 } else {<br>
@@ -104,7 +105,8 @@
                         return new Promise((resolve, reject) => {<br>
                           // Simulación de solicitud de datos asincrónica<br>
                           setTimeout(() => {<br>
-                            const exito = true; // Cambiar a false para simular un error<br>
+                            const exito = true;<br>
+                            // Cambiar a false para simular un error<br>
                             if (exito) {<br>
                               resolve("Datos obtenidos correctamente");<br>
                             } else {<br>
