@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promesas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="menu.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="navbar-brand">
+            Píldora Promesas en Javascript, por Alejandra Eng
+        </h1>
+        <nav class="navbar">
+            <div class="menu-toggle">
+                <div class="hamburger">
+                </div>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html#definicion">
+                        Definicion
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#sintaxis">
+                        Sintaxis
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#estados">
+                        Estados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#metodos">
+                        Métodos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tipos.html">
+                        Tipos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        Ejemplos
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Promesas</h1>
+
+        <section>
+            <article>
+                <h4>Ejemplo de Promesa 1: Simulación de operación asincrónica: solicitud de red</h4>
+                <code id="promesaredtrue">
+            <div class="codigo">
+                const promesared = new Promise((resolve, reject) => {<br>
+                    setTimeout(() => {<br>
+                        const exito = false; // Cambiar a false para simular un rechazo<br>
+                        if (exito) {<br>
+                            resolve("¡Éxito! Datos recibidos");<br>
+                        } else {<br>
+                            reject("Error: No se pudieron recibir los datos");<br>
+                        }<br>
+                    }, 2000);<br>
+                });<br>
+                <br>
+                promesared<br>
+                    .then((resultado) => {<br>
+                        console.log(resultado);<br>
+                        console.log = function (message) {<br>
+                            document.getElementById("promesaredtrue").innerHTML += message<br>
+                        }<br>
+                    })<br>
+                    .catch((error) => {<br>
+                        console.error(error);<br>
+                        console.log = function (message) {<br>
+                            document.getElementById("promesaredfalse").innerHTML += message<br>
+                        }
+                    });
+            </code>
+                </div>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- JavaScript -->
+    <!-- Menú Toggle -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbar = document.querySelector(".navbar");
+            const menuToggle = document.querySelector(".menu-toggle");
+            menuToggle.addEventListener("click", () => {
+                navbar.classList.toggle("open");
+            });
+        });
+    </script>
+
+    <!-- Promesa de red 1 -->
+    <script>
+        const promesared = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const exito = false; // Cambiar a false para simular un rechazo
+                if (exito) {
+                    resolve("¡Éxito! Datos recibidos");
+                } else {
+                    reject("Error: No se pudieron recibir los datos");
+                }
+            }, 2000);
+        });
+
+        promesared
+            .then((resultado) => {
+                console.log(resultado);
+                console.log = function (message) {
+                    document.getElementById("promesaredtrue").innerHTML += message
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+                console.log = function (message) {
+                    document.getElementById("promesaredfalse").innerHTML += message
+                }
+            });
+
+    </script>
+</body>
+
+</html>

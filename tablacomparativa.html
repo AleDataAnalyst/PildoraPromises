@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="menu.js"></script>
+    <title>Promise Methods Comparison</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="navbar-brand">
+            Píldora Promesas en Javascript, por Alejandra Eng
+        </h1>
+        <nav class="navbar">
+            <div class="menu-toggle">
+                <div class="hamburger">
+                </div>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link active" href="indexred.html#definicion">
+                        Definicion
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="indexred.html#sintaxis">
+                        Sintaxis
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#estados">
+                        Estados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#metodos">
+                        Métodos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tipos.html">
+                        Tipos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ejemplos.html">
+                        Ejemplos
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Promesas</h1>
+        <section id="definicion">
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Método</th>
+                            <th>Definición</th>
+                            <th>Condición</th>
+                            <th>Valor resultante</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Método"><strong>Promise.all</strong></td>
+                            <td data-label="Definición">Retorna una Promesa que se resuelve cuando todas las Promesas en
+                                el iterable se han resuelto o una se ha rechazado.</td>
+                            <td data-label="Condición">Se resuelve solo si todas las Promesas en el iterable se
+                                resuelven.</td>
+                            <td data-label="Valor resultante">Todas las Promesas se resuelven o una se rechaza.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Método"><strong>Promise.race</strong></td>
+                            <td data-label="Definición">Retorna una Promesa que se resuelve o se rechaza tan pronto como
+                                una de las Promesas del iterable se resuelve o se rechaza, con el valor o la razón de
+                                esa Promesa.</td>
+                            <td data-label="Condición">Se resuelve o se rechaza tan pronto como una de las Promesas
+                                del iterable se resuelve o se rechaza.</td>
+                            <td data-label="Valor resultante">La primera Promesa que se resuelve o se rechaza.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Método"><strong>Promise.allSettled</strong></td>
+                            <td data-label="Definición">Retorna una Promesa que se resuelve después de que todas las
+                                Promesas en el iterable se
+                                hayan resuelto o rechazado, devolviendo un array de objetos con información sobre el
+                                resultado de cada Promesa.</td>
+                            <td data-label="Condición">Se resuelve después de que todas las Promesas en el iterable se
+                                hayan resuelto o
+                                rechazado.</td>
+                            <td data-label="Valor resultante">Información sobre el resultado de cada Promesa.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Método"><strong>Promise.any</strong></td>
+                            <td data-label="Definición">Retorna una Promesa que se resuelve tan pronto como al menos una
+                                de las Promesas del
+                                iterable se resuelve. Si todas las Promesas son rechazadas, se rechaza con un array de
+                                razones.</td>
+                            <td data-label="Condición">Se resuelve tan pronto como al menos una de las Promesas se
+                                resuelve.</td>
+                            <td data-label="Valor resultante">El valor de la primera Promesa que se resuelve.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid-container">
+                <div class="grid-item gridtitle"><strong>Método y Definición</strong></div>
+                <div class="grid-item gridtitle"><strong>Condición</strong></div>
+                <div class="grid-item gridtitle"><strong>Valor resultante</strong></div>
+
+                <!-- Promise.all -->
+                <div class="grid-item"><strong>Promise.all:</strong> Retorna una Promesa que se resuelve cuando todas
+                    las Promesas en el iterable se han resuelto o una se ha rechazado.</div>
+                <div class="grid-item">Se resuelve solo si todas las Promesas en el iterable se resuelven.</div>
+                <div class="grid-item">Todas las Promesas se resuelven o una se rechaza.</div>
+
+                <!-- Promise.race -->
+                <div class="grid-item"><strong>Promise.race:</strong> Retorna una Promesa que se resuelve o se rechaza tan pronto como una de las
+                    Promesas del iterable se resuelve o se rechaza, con el valor o la razón de esa Promesa.</div>
+                <div class="grid-item">Se resuelve o se rechaza tan pronto como una de las Promesas del iterable se
+                    resuelve o se rechaza.</div>
+                <div class="grid-item">La primera Promesa que se resuelve o se rechaza.</div>
+
+                <!-- Promise.allSettled -->
+                <div class="grid-item"><strong>Promise.allSettled:</strong> Retorna una Promesa que se resuelve después de que todas las Promesas en el
+                    iterable se hayan resuelto o rechazado, devolviendo un array de objetos con información sobre el
+                    resultado de cada Promesa.</div>
+                <div class="grid-item">Se resuelve después de que todas las Promesas en el iterable se hayan resuelto o
+                    rechazado.</div>
+                <div class="grid-item">Información sobre el resultado de cada Promesa.</div>
+
+                <!-- Promise.any -->
+                <div class="grid-item"><strong>Promise.any:</strong> Retorna una Promesa que se resuelve tan pronto como al menos una de las Promesas
+                    del iterable se resuelve. Si todas las Promesas son rechazadas, se rechaza con un array de razones.
+                </div>
+                <div class="grid-item">Se resuelve tan pronto como al menos una de las Promesas se resuelve.</div>
+                <div class="grid-item">El valor de la primera Promesa que se resuelve.</div>
+
+            </div>
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promesas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="menu.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="navbar-brand">
+            Píldora Promesas en Javascript, por Alejandra Eng
+        </h1>
+        <nav class="navbar">
+            <div class="menu-toggle">
+                <div class="hamburger">
+                </div>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#definicion">
+                        Definicion
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#sintaxis">
+                        Sintaxis
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#estados">
+                        Estados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#metodos">
+                        Métodos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        Tipos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ejemplos.html">
+                        Ejemplos
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Promesas</h1>
+        <section id="all">
+            <h2>Promise.all</h2>
+            <article>
+                <p>Devuelve una única Promesa que se resuelve cuando:</p>
+                    <li>todas las Promesas en el iterable pasado como argumento se han resuelto,</li>
+                    <li>o una se ha rechazado.</li>
+            </article>
+        </section>
+
+        <section id="race">
+            <h2>Promise.race</h2>
+            <article>
+                <p>Devuelve una única Promesa que se resuelve o se rechaza tan pronto como:</p>
+                    <li>una de las Promesas del iterable se resuelve o se rechaza, con el valor o la razón de esa Promesa.</li>
+            </article>
+        </section>
+
+        <section id="metodos">
+            <h2>Métodos de una promesa</h2>
+            <article>
+                <h3>.then(onFulfilled, onRejected):</h3>
+                <p>Se utiliza para adjuntar funciones de <em>callback</em> que se ejecutan <strong>cuando la Promesa se
+                        resuelve con éxito (en el estado "Fulfilled")</strong> o <strong>cuando se rechaza (en el estado
+                        "Rejected")</strong>.
+                    La función <strong>onFulfilled</strong> se ejecutará con el <strong>valor resuelto</strong> y la
+                    función </¡strong>onRejected</strong> se ejecutará con la <strong>razón del rechazo</strong>.</p>
+            </article>
+            <article>
+                <h3>.catch(onRejected):</h3>
+                <p>Un atajo para manejar solo el caso de rechazo, es equivalente a llamar a .then(null, onRejected).</p>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- JavaScript -->
+    <!-- Menú Toggle -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbar = document.querySelector(".navbar");
+            const menuToggle = document.querySelector(".menu-toggle");
+            menuToggle.addEventListener("click", () => {
+                navbar.classList.toggle("open");
+            });
+        });
+    </script>
+
+    <!-- Promesa de red -->
+    <script>
+        const promesared = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const exito = false; // Cambiar a false para simular un rechazo
+                if (exito) {
+                    resolve("¡Éxito! Datos recibidos");
+                } else {
+                    reject("Error: No se pudieron recibir los datos");
+                }
+            }, 2000);
+        });
+
+        promesared
+            .then((resultado) => {
+                console.log(resultado);
+                console.log = function (message) {
+                    document.getElementById("promesaredtrue").innerHTML += message
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+                console.log = function (message) {
+                    document.getElementById("promesaredfalse").innerHTML += message
+                }
+            });
+
+    </script>
+</body>
+
+</html>
