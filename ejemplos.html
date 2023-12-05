@@ -63,30 +63,30 @@
 
                 <div class="codigo">
                     <code id="promesaredtrue">
-                        const promesared = new Promise((resolve, reject) => {<br>
-                            setTimeout(() => {<br>
-                                const exito = false;<br>
-                                // Cambiar a true para simular respuesta y false para simular un rechazo<br>
-                                if (exito) {<br>
-                                    resolve("¡Éxito! Datos recibidos");<br>
-                                } else {<br>
-                                    reject("Error: No se pudieron recibir los datos");<br>
-                                }<br>
+                       const promesared = new Promise((resolve, reject) => {<br>
+                           setTimeout(() => {<br>
+                               const exito = false;<br>
+                               // Cambiar a true para simular respuesta y false para simular un rechazo<br>
+                               if (exito) {<br>
+                                   resolve("¡Éxito! Datos recibidos");<br>
+                               } else {<br>
+                                   reject("Error: No se pudieron recibir los datos");<br>
+                               }<br>
                             }, 2000);<br>
                         });<br>
                         <br>
                         promesared<br>
-                            .then((resultado) => {<br>
-                                console.log(resultado);<br>
-                                console.log = function (message) {<br>
-                                    document.getElementById("promesaredtrue").innerHTML += message<br>
-                                }<br>
-                            })<br>
-                            .catch((error) => {<br>
-                                console.error(error);<br>
-                                console.log = function (message) {<br>
-                                    document.getElementById("promesaredfalse").innerHTML += message<br>
-                                }<br>
+                           .then((resultado) => {<br>
+                               console.log(resultado);<br>
+                               console.log = function (message) {<br>
+                                   document.getElementById("promesaredtrue").innerHTML += message<br>
+                               }<br>
+                           })<br>
+                           .catch((error) => {<br>
+                               console.error(error);<br>
+                               console.log = function (message) {<br>
+                                   document.getElementById("promesaredfalse").innerHTML += message<br>
+                               }<br>
                         });
                     </code>
                 </div>
